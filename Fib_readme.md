@@ -100,3 +100,5 @@ val my_test_list = Seq(0,1,2,3,4,5,6,7,8,9,10,15,20,68,69,70,71,72)
     }
     println("test success")
 ```
+
+There is no failure report for valid and done signal, so their functionality are also correct.
