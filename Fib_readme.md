@@ -13,7 +13,7 @@ Below is a summary of the main structure and functionality of the code.
 | ---------- | -------------- | --------------- | 
 |in|Input|The index of the Fibonacci sequence(start from 0th)|
 |out|Output|Data of the index|
-|done|Output|a signal indication for computaion's end|
+|done|Output|A signal indication for computaion's end|
 ## Contents:
 
 1. Port Declaration
