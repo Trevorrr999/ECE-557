@@ -23,9 +23,11 @@ Below is a summary of the main structure and functionality of the code.
 3. Design Validation
 
 ### Port Declaration:
-io.in (DeqIO(UInt(7.W))) – A 7-bit input using a ready/valid handshake for receiving data.
-io.out (Output(Valid(UInt(64.W)))) – A 64-bit output with a valid signal to indicate result availability.
-io.done (Output(UInt(1.W))) – A 1-bit signal indicating the completion of the operation.
+io.in (DeqIO(UInt(7.W))) ------ A 7-bit input using a ready/valid handshake for receiving data.
+
+io.out (Output(Valid(UInt(64.W)))) ------ A 64-bit output with a valid signal to indicate result availability.
+
+io.done (Output(UInt(1.W))) ------ A 1-bit signal indicating the completion of the operation.
 ### Finite State Machine:
 The FSM consists of three states defined using Chisel's Enum function:
 ```
