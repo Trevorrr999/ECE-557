@@ -13,7 +13,7 @@ Below is a summary of the main structure and functionality of the code.
 | ---------- | -------------- | --------------- | 
 |in|Input|The index of the Fibonacci sequence(start from 0th)|
 |out|Output|Data of the index|
-|done|Output|signal indicate|
+|done|Output|a signal indication for computaion's end|
 ## Contents:
 
 1. Port Declaration
@@ -71,4 +71,29 @@ elsewhen(state === sN)
 the test file incorperate some corner cases and the target index 70th
 the test result are show as below:
 
+![image](https://github.com/user-attachments/assets/51de0e28-eb1e-44f2-b385-2ae46020f082)
 
+The figure shows the result passed testcases in this design, which covers the required index 70th. Furthermore, the testbench incorporates more corner cases to validate the circuit's functionality. It turns out that the design is correct. 
+
+```
+val my_test_list = Seq(0,1,2,3,4,5,6,7,8,9,10,15,20,68,69,70,71,72)
+  for(i <- my_test_list)
+    {
+      poke(c.io.in.valid, 1)
+      poke(c.io.in.bits, i)
+      step(1)
+
+      while(peek(c.io.out.valid) == 0)
+      {
+        step(1)
+      }
+
+      val result = peek(c.io.out.bits)
+      val expected_result = fib_cal(i)
+      expect(c.io.out.valid, 1, s"the valid signal is not activated")
+      expect(c.io.done, 1, s"the done signal is not activated")
+      println(s"the input n is: $i, the result is: $result, the expected result is: $expected_result")
+      expect(c.io.out.bits, expected_result, s"Fibonacci($i) should be $expected_result")
+    }
+    println("test success")
+```
