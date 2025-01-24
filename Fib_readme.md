@@ -34,7 +34,9 @@ The FSM consists of three states defined using Chisel's Enum function:
 val sIDLE :: sN :: s_finish :: Nil = Enum(3)
 ```
 sIDLE: The initial state where the system waits for input.
+
 sN: The state where the Fibonacci computation occurs.
+
 s_finish: The state indicating the computation is complete.
 
 the register cnt is used to record which index is currently calculated.If cnt equals num, sets output_flag to true and transitions to s_finish; otherwise, remains in sN.
@@ -69,6 +71,7 @@ elsewhen(state === sN)
 ```
 ### Design Validation:
 the test file incorperate some corner cases and the target index 70th
+
 the test result are show as below:
 
 ![image](https://github.com/user-attachments/assets/51de0e28-eb1e-44f2-b385-2ae46020f082)
